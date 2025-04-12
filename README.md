@@ -1,6 +1,10 @@
 # ARC Framework
 
-The ARC Framework is designed to facilitate experimentation and evaluation of various models against the ARC challenges proposed by François Chollet. This framework provides a structured approach to implement, test, and evaluate different benchmarks, making it easier for researchers and developers to work with these challenges.
+A framework for working with the Abstract Reasoning Corpus (ARC) challenge by François Chollet.
+
+## Overview
+
+The ARC Framework provides tools for loading, visualizing, and evaluating ARC tasks. It supports multiple versions of the ARC dataset, including ARC-AGI and ARC-AGI2.
 
 ## Project Structure
 
@@ -26,29 +30,140 @@ The project is organized into several key directories and files:
 
 ## Installation
 
-To install the ARC Framework, clone the repository and install the required dependencies:
+### Option 1: Install from GitHub
 
 ```bash
-git clone <repository-url>
-cd arc-framework
-pip install -r requirements.txt
+pip install git+https://github.com/yourusername/arc.git
 ```
 
-## Usage
+### Option 2: Local Installation
 
-To use the ARC Framework, you can import the necessary modules in your Python scripts. For example, to work with the ARC-AGI benchmark:
+Clone the repository and install it locally:
+
+```bash
+git clone https://github.com/yourusername/arc.git
+cd arc
+pip install -e .
+```
+
+## Quick Start
+
+Here's a simple example of using the ARC Framework:
 
 ```python
-from src.benchmarks.arc_agi import ARCAGI
-from src.models.base_model import BaseModel
+from arc import load_dataset, get_task, visualize, download_arc_dataset
 
-# Initialize the benchmark and model
-benchmark = ARCAGI()
-model = BaseModel()
+# Download dataset if not present
+download_arc_dataset("arc-agi")
 
-# Run the evaluation
+# Load a dataset
+dataset = load_dataset("arc-agi", split="training")
+print(f"Loaded dataset with {len(dataset)} tasks")
+
+# Get a specific task
+task_id = dataset.task_ids[0]
+task = get_task("arc-agi", task_id)
+
+# Visualize the task
+visualize(task, save=True)
+```
+
+## Using ARC Framework in External Projects
+
+The ARC Framework is designed to be easily used in external projects. Here's how you can integrate it:
+
+### 1. Loading Datasets
+
+```python
+from arc import load_dataset
+
+# Load the training set of ARC-AGI
+training_dataset = load_dataset("arc-agi", split="training")
+
+# Load the evaluation set of ARC-AGI2
+eval_dataset = load_dataset("arc-agi2", split="evaluation")
+```
+
+### 2. Working with Tasks
+
+```python
+from arc import get_task
+
+# Get a specific task by ID
+task = get_task("arc-agi", "08573cc6", split="training")
+
+# Iterate through all tasks in a dataset
+dataset = load_dataset("arc-agi", split="training")
+for task_id in dataset.task_ids:
+    task = dataset.get_task(task_id)
+    print(f"Task {task_id}: {len(task.train_examples)} train examples, {len(task.test_examples)} test examples")
+```
+
+### 3. Visualizing Tasks
+
+```python
+from arc import visualize
+
+# Visualize a task
+visualize(task, title="My Task Visualization")
+
+# Save the visualization
+visualize(task, save=True, save_path="path/to/save/visualization.png")
+```
+
+### 4. Implementing and Evaluating Models
+
+```python
+from arc import BaseModel, evaluate_model
+
+# Implement a model by subclassing BaseModel
+class MyModel(BaseModel):
+    def predict(self, input_data):
+        # Implement prediction logic
+        return processed_output
+        
+    def train(self, train_examples):
+        # Implement training logic
+        pass
+
+# Create your model
+model = MyModel()
+
+# Train your model
+model.train(task.train_examples)
+
+# Evaluate your model on a task
+metrics = evaluate_model(model, task)
+metrics.report()  # Print metrics
+```
+
+## Advanced Usage
+
+For more advanced usage, see the examples in the `examples/` directory:
+
+- `basic_usage.py`: Simple example of loading and visualizing tasks
+- `external_usage.py`: Example of using the framework in an external project
+
+## Available Datasets
+
+- `arc-agi`: The original ARC-AGI dataset
+- `arc-agi2`: The updated ARC-AGI2 dataset
+
+## Running Benchmarks
+
+```python
+from arc.benchmarks.arc_agi import ARCAGIBenchmark
+from arc.models.simple_model import SimpleModel
+
+# Initialize the benchmark
+benchmark = ARCAGIBenchmark()
+
+# Create your model
+model = SimpleModel()
+
+# Run the benchmark
 results = benchmark.evaluate(model)
-print(results)
+benchmark.report(results)
 ```
 
 ## Contributing
@@ -57,4 +172,4 @@ Contributions to the ARC Framework are welcome! Please feel free to submit issue
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+[Your License]
