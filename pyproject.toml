@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "arc-framework"
+name = "arc"
 version = "0.1.0"
 description = "A framework to deal with various ARC challenges by Chollet."
 authors = ["Your Name <your.email@example.com>"]
