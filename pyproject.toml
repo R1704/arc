@@ -50,7 +50,7 @@ dev = [
 "Bug Tracker" = "https://github.com/R1704/arc/issues"
 
 [tool.setuptools]
-packages = ["arc"]
+packages = ["arc", "arc.datasets", "arc.core", "arc.models", "arc.utils", "arc.benchmarks"]
 
 [tool.black]
 line-length = 88
