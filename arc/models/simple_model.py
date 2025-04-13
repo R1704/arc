@@ -1,7 +1,7 @@
-from src.models.base_model import BaseModel
-from src.core.task import Task
-from src.core.evaluation import evaluate_model
-from src.benchmarks.arc_agi import ARCAGI
+from arc.models.base_model import BaseModel
+from arc.core.task import Task
+from arc.core.evaluation import evaluate_model
+from arc.benchmarks.arc_agi import ARCAGI
 
 class SimpleModel(BaseModel):
     def __init__(self):

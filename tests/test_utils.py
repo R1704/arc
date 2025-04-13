@@ -1,5 +1,5 @@
 import unittest
-from src.utils import data_loader, visualization
+from arc.utils import data_loader, visualization
 
 class TestUtils(unittest.TestCase):
 

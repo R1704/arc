@@ -1,5 +1,5 @@
-from src.core.task import Task
-from src.core.evaluation import evaluate_model
+from arc.core.task import Task
+from arc.core.evaluation import evaluate_model
 
 class CustomBenchmark:
     def __init__(self, tasks):

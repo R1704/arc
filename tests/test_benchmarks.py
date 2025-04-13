@@ -1,8 +1,8 @@
 import unittest
-from src.benchmarks.arc_agi import ARCAGI
-from src.benchmarks.arc_agi2 import ARCAGI2
-from src.benchmarks.arc_1d import ARC1D
-from src.benchmarks.custom_benchmark import CustomBenchmark
+from arc.benchmarks.arc_agi import ARCAGI
+from arc.benchmarks.arc_agi2 import ARCAGI2
+from arc.benchmarks.arc_1d import ARC1D
+from arc.benchmarks.custom_benchmark import CustomBenchmark
 
 class TestBenchmarks(unittest.TestCase):
 

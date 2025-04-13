@@ -18,7 +18,7 @@ if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
 # Import from the ARC module
-from src import (
+from arc import (
     load_dataset, 
     get_task,
     visualize,

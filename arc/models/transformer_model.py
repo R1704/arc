@@ -1,7 +1,7 @@
-from src.models.base_model import BaseModel
-from src.core.task import Task
-from src.core.evaluation import evaluate_model
-from src.utils.data_loader import load_data
+from arc.models.base_model import BaseModel
+from arc.core.task import Task
+from arc.core.evaluation import evaluate_model
+from arc.utils.data_loader import load_data
 
 class TransformerModel(BaseModel):
     def __init__(self, config):

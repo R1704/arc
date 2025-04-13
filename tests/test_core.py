@@ -1,11 +1,11 @@
 import unittest
-from src.core.task import Task
-from src.core.grid import Grid
-from src.core.evaluation import evaluate_model
-from src.benchmarks.arc_agi import ARCAGI
-from src.benchmarks.arc_agi2 import ARCAGI2
-from src.benchmarks.arc_1d import ARC1D
-from src.models.base_model import BaseModel
+from arc.core.task import Task
+from arc.core.grid import Grid
+from arc.core.evaluation import evaluate_model
+from arc.benchmarks.arc_agi import ARCAGI
+from arc.benchmarks.arc_agi2 import ARCAGI2
+from arc.benchmarks.arc_1d import ARC1D
+from arc.models.base_model import BaseModel
 
 class TestCore(unittest.TestCase):
 
