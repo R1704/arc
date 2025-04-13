@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='arc-framework',
+    name='arc',
     version='0.1.0',
-    author='Your Name',
-    author_email='your.email@example.com',
+    author='ron',
+    author_email='ron.hommelsheim@gmail.com',
     description='A framework for dealing with various ARC challenges by Chollet.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/arc',
+    url='https://github.com/R1704/arc',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     include_package_data=True,
