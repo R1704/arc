@@ -33,7 +33,7 @@ The project is organized into several key directories and files:
 ### Option 1: Install from GitHub
 
 ```bash
-pip install git+https://github.com/yourusername/arc.git
+pip install git+https://github.com/R1704/arc.git
 ```
 
 ### Option 2: Local Installation
@@ -41,7 +41,7 @@ pip install git+https://github.com/yourusername/arc.git
 Clone the repository and install it locally:
 
 ```bash
-git clone https://github.com/yourusername/arc.git
+git clone https://github.com/R1704/arc.git
 cd arc
 pip install -e .
 ```
